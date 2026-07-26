@@ -1,15 +1,10 @@
 "use client";
 
-import { ArchiveMeta } from "@/lib/archive";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-interface ClientHomePageProps {
-  recentArchive: ArchiveMeta[];
-}
-
-export default function ClientHomePage({ recentArchive }: ClientHomePageProps) {
+export default function ClientHomePage() {
   const [activeSection, setActiveSection] = useState("");
   const sectionsRef = useRef<(HTMLElement | null)[]>([]);
 
@@ -37,7 +32,7 @@ export default function ClientHomePage({ recentArchive }: ClientHomePageProps) {
           }
         });
       },
-      { threshold: 0.3, rootMargin: "0px 0px -20% 0px" }
+      { threshold: 0.3, rootMargin: "0px 0px -20% 0px" },
     );
 
     sectionsRef.current.forEach((section) => {
@@ -64,8 +59,8 @@ export default function ClientHomePage({ recentArchive }: ClientHomePageProps) {
                   index === 0
                     ? "rounded-t-xs rounded-b-none"
                     : index === array.length - 1
-                    ? "rounded-b-xs rounded-t-none"
-                    : "rounded-none"
+                      ? "rounded-b-xs rounded-t-none"
+                      : "rounded-none"
                 } ${
                   activeSection === section
                     ? "bg-foreground"
@@ -73,7 +68,7 @@ export default function ClientHomePage({ recentArchive }: ClientHomePageProps) {
                 }`}
                 aria-label={`Maps to ${section}`}
               />
-            )
+            ),
           )}
         </div>
       </nav>
@@ -90,7 +85,7 @@ export default function ClientHomePage({ recentArchive }: ClientHomePageProps) {
             <div className="lg:col-span-3 space-y-6 sm:space-y-8">
               <div className="space-y-3 sm:space-y-2">
                 <div className="text-sm text-muted-foreground font-mono tracking-wider">
-                  PORTFOLIO / 2025
+                  PORTFOLIO / 2026
                 </div>
                 <h1 className="text-5xl sm:text-6xl lg:text-7xl font-light tracking-tight">
                   Abhay
@@ -229,61 +224,9 @@ export default function ClientHomePage({ recentArchive }: ClientHomePageProps) {
         </section>
 
         <section
-          id="thoughts"
-          ref={(el) => {
-            sectionsRef.current[2] = el;
-          }}
-          className="min-h-screen py-20 sm:py-32 opacity-0"
-        >
-          <div className="space-y-12 sm:space-y-16">
-            <h2 className="text-3xl sm:text-4xl font-light">Recent Thoughts</h2>
-
-            <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
-              {recentArchive.map((post, index) => (
-                <Link
-                  href={`/archive/${post.slug}`}
-                  key={index}
-                  passHref
-                  className="group p-6 sm:p-8 border border-border rounded-lg hover:border-muted-foreground/50 transition-all duration-500 hover:shadow-lg cursor-pointer"
-                >
-                  <div className="space-y-4 flex flex-col justify-between h-full">
-                    <div className="space-y-4">
-                      <div className="flex items-center justify-between text-xs text-muted-foreground font-mono">
-                        <span>{post.date}</span>
-                      </div>
-
-                      <h3 className="text-lg sm:text-xl font-medium group-hover:text-muted-foreground transition-colors duration-300">
-                        {post.title}
-                      </h3>
-
-                      <p className="text-muted-foreground leading-relaxed">
-                        {post.excerpt}
-                      </p>
-                    </div>
-                    <div className="flex items-center gap-1 text-sm text-muted-foreground group-hover:text-foreground transition-colors duration-300">
-                      <span>Read more</span>
-                      <ArrowRight className="group-hover:ml-1 h-5 w-5 transition-all duration-300" />
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
-
-            <div className="text-center mt-10">
-              <Link
-                href="/archive"
-                className="inline-flex items-center px-4 py-2 border border-border rounded hover:bg-muted/30 transition-all duration-300"
-              >
-                View All Archive
-              </Link>
-            </div>
-          </div>
-        </section>
-
-        <section
           id="connect"
           ref={(el) => {
-            sectionsRef.current[3] = el;
+            sectionsRef.current[2] = el;
           }}
           className="py-20 sm:py-32 opacity-0"
         >
@@ -355,7 +298,7 @@ export default function ClientHomePage({ recentArchive }: ClientHomePageProps) {
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-6 sm:gap-8">
             <div className="space-y-2">
               <div className="text-sm text-muted-foreground">
-                © 2025 SinghAstra. All rights reserved.
+                © 2026 SinghAstra. All rights reserved.
               </div>
             </div>
           </div>
