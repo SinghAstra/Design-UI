@@ -46,30 +46,28 @@ export default function ClientHomePage() {
     <div className="min-h-screen bg-background text-foreground relative">
       <nav className="fixed left-8 top-1/2 -translate-y-1/2 z-10 hidden lg:block border p-1 rounded">
         <div className="flex flex-col gap-1">
-          {["intro", "work", "thoughts", "connect"].map(
-            (section, index, array) => (
-              <button
-                key={section}
-                onClick={() =>
-                  document
-                    .getElementById(section)
-                    ?.scrollIntoView({ behavior: "smooth" })
-                }
-                className={`w-2 h-8 cursor-pointer transition-all duration-500 ${
-                  index === 0
-                    ? "rounded-t-xs rounded-b-none"
-                    : index === array.length - 1
-                      ? "rounded-b-xs rounded-t-none"
-                      : "rounded-none"
-                } ${
-                  activeSection === section
-                    ? "bg-foreground"
-                    : "bg-muted-foreground/30 hover:bg-muted-foreground/60"
-                }`}
-                aria-label={`Maps to ${section}`}
-              />
-            ),
-          )}
+          {["intro", "work", "connect"].map((section, index, array) => (
+            <button
+              key={section}
+              onClick={() =>
+                document
+                  .getElementById(section)
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
+              className={`w-2 h-8 cursor-pointer transition-all duration-500 ${
+                index === 0
+                  ? "rounded-t-xs rounded-b-none"
+                  : index === array.length - 1
+                    ? "rounded-b-xs rounded-t-none"
+                    : "rounded-none"
+              } ${
+                activeSection === section
+                  ? "bg-foreground"
+                  : "bg-muted-foreground/30 hover:bg-muted-foreground/60"
+              }`}
+              aria-label={`Maps to ${section}`}
+            />
+          ))}
         </div>
       </nav>
 
