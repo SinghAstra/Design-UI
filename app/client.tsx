@@ -155,7 +155,7 @@ export default function ClientHomePage() {
                 Work Experience
               </h2>
               <div className="text-sm text-muted-foreground font-mono">
-                2023 — 2025
+                2023 — 2026
               </div>
             </div>
 
